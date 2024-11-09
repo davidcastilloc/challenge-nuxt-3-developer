@@ -17,6 +17,15 @@ const ingredients = computed(() => {
     oil: 100,
   }
 })
+useHead({
+  title: 'Results',
+  meta: [
+    {
+      name: 'description',
+      content: 'Results of the meal calculator',
+    },
+  ],
+})
 </script>
 
 <style>
