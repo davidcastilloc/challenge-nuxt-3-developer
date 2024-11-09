@@ -10,21 +10,18 @@
   <section class="container mx-auto py-4">
     <BaseNav class="container mx-auto">
       <div class="flex justify-between space-x-6">
-        <NuxtLink to="/" class=" hover:text-accent transition">Home</NuxtLink>
-        <NuxtLink to="/calculator" class=" hover:text-accent transition">Calculator</NuxtLink>
+        <NuxtLink to="/" class=" hover:text-accent transition">Calculator</NuxtLink>
         <a href="/stores" class=" hover:text-accent transition">Our Stores</a>
       </div>
     </BaseNav>
   </section>
-
   <main class="py-8">
     <div class="container mx-auto">
       <slot />
     </div>
   </main>
-
   <footer class="bg-dark py-4 text-center ">
-    <p>&copy; 2023 Company Inc. All rights reserved.</p>
+    <p>&copy; 2024 Company Inc. All rights reserved.</p>
   </footer>
 </template>
 

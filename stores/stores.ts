@@ -34,6 +34,9 @@ export const useMyStoresStore = defineStore({
     getTotalPages(): number {
       return Math.ceil(this.stores.length / this.itemsPerPage);
     },
+    getCurrentPageNumber(): number {
+      return this.currentPage
+    },
     isLoading(): boolean {
       return this.loading;
     },
