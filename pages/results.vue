@@ -1,15 +1,22 @@
 <template>
   <BaseCard>
-    <h2 class="text-2xl font-bold">
-      Results
-    </h2>
-    <p>You can cook {{ meals }} meals!</p>
+    <AppMealResults :meals="meals" :ingredients="ingredients" />
   </BaseCard>
 </template>
 
 <script lang="ts" setup>
 const route = useRoute()
 const meals = computed(() => route.query.meals)
+const ingredients = computed(() => {
+  return {
+    pasta: 500,
+    bacon: 200,
+    eggs: 1,
+    milk: 200,
+    butter: 500,
+    oil: 100,
+  }
+})
 </script>
 
 <style>

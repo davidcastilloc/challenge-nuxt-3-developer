@@ -23,12 +23,12 @@ const ingredients = {
 }
 
 const userIngredients = ref({
-  pasta: 0,
-  bacon: 0,
-  eggs: 0,
-  milk: 0,
-  butter: 0,
-  oil: 0,
+  pasta: 20000,
+  bacon: 20000,
+  eggs: 20000,
+  milk: 20000,
+  butter: 20000,
+  oil: 20000,
 })
 
 const calculateMeal = () => {
