@@ -1,5 +1,7 @@
 {
-  "name": "nuxt-app",
+  "name": "carbonara-calculator",
+  "description": "Pasta Carbonara meal calculator",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,8 +12,13 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.7.0",
+    "@shuriken-ui/nuxt": "^3.6.1",
     "nuxt": "^3.14.159",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "overrides": {
+    "vue": "latest"
   }
 }
