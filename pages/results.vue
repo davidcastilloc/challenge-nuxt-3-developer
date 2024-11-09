@@ -1,6 +1,6 @@
 <template>
   <BaseCard>
-    <AppMealResults :meals="meals" :ingredients="ingredients" />
+    <AppMealResultDisplay :meals="meals" :ingredients="ingredients" />
   </BaseCard>
 </template>
 
