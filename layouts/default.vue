@@ -12,7 +12,7 @@
       <div class="flex justify-between space-x-6">
         <NuxtLink to="/" class=" hover:text-accent transition">Home</NuxtLink>
         <NuxtLink to="/calculator" class=" hover:text-accent transition">Calculator</NuxtLink>
-        <NuxtLink to="/stores" class=" hover:text-accent transition">Stores</NuxtLink>
+        <a href="/stores" class=" hover:text-accent transition">Our Stores</a>
       </div>
     </BaseNav>
   </section>

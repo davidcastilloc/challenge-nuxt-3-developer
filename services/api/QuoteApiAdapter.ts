@@ -1,11 +1,11 @@
 // src/services/api/QuoteApiAdapter.ts
-import ApiAdapter from './ApiAdapter';
+import ApiAdapter from "./ApiAdapter";
 
 const quoteCache: Record<string, { quote: string; fetchedAt: number }> = {};
 
 export default class QuoteApiAdapter extends ApiAdapter {
-  async getQuoteOfTheDay(): Promise<string> {
-    const cacheKey = 'quote-of-the-day';
+  async getQuoteOfTheDay(): Promise<any> {
+    const cacheKey = "quote-of-the-day";
 
     // Verificar si tenemos una cita válida en caché
     const cachedData = this.getCachedQuote(cacheKey);
@@ -14,27 +14,26 @@ export default class QuoteApiAdapter extends ApiAdapter {
     }
 
     try {
-      const endpoint = useRuntimeConfig().public.quoteApiEndpoint || '';
-      const token = useRuntimeConfig().quoteSecret || '';
-
+      const endpoint = useRuntimeConfig().public.quoteApiEndpoint || "";
+      const token = useRuntimeConfig().quoteSecret || "";
       const { data } = await useFetch(endpoint, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
-          'X-Api-Key': token,
+          "Content-Type": "application/json",
+          "X-Api-Key": token,
         },
         transform: (input: any) => ({
-          quote: input[0]?.quote || 'No quote available',
+          quote: input[0] || "No quote available",
           fetchedAt: Date.now(),
         }),
       });
 
       // Guardar la cita en la memoria caché del servidor
       this.cacheQuote(cacheKey, data.value);
-      return data.value.quote;
+      return data.value?.quote || "No quote available";
     } catch (error) {
-      console.error('Error fetching quote:', error);
-      throw new Error('Failed to fetch quote');
+      console.error("Error fetching quote:", error);
+      throw new Error("Failed to fetch quote");
     }
   }
 
@@ -46,7 +45,7 @@ export default class QuoteApiAdapter extends ApiAdapter {
     const isExpired = Date.now() - cachedData.fetchedAt > expirationTime;
 
     if (isExpired) {
-      console.log('Quote of the day expired, refetching...');
+      console.log("Quote of the day expired, refetching...");
       this.clearCache(cacheKey);
       return null;
     }
@@ -60,9 +59,9 @@ export default class QuoteApiAdapter extends ApiAdapter {
 
   private clearCache(cacheKey: string) {
     delete quoteCache[cacheKey];
-  } 
+  }
 
   async getStores(): Promise<any[]> {
-    throw new Error('getStores method not implemented for QuoteApiAdapter');
+    throw new Error("getStores method not implemented for QuoteApiAdapter");
   }
 }

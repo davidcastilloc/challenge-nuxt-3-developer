@@ -1,4 +1,4 @@
 export default abstract class ApiAdapter {
-  abstract getQuoteOfTheDay(): Promise<string>;
+  abstract getQuoteOfTheDay(): Promise<any>;
   abstract getStores(): Promise<any[]>;
 }

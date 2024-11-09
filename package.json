@@ -20,5 +20,8 @@
   },
   "overrides": {
     "vue": "latest"
+  },
+  "devDependencies": {
+    "@iconify-json/mdi": "^1.2.1"
   }
 }

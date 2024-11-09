@@ -11,17 +11,31 @@
         List of stores
       </p>
     </BaseCard>
-    <AppStoresStoreList :stores="getStores" />
+    <BaseInput v-on:keyup.enter="filterEvent" placeholder="Search..." class="w-full" />
+    <div v-if="isLoading" class="flex justify-center items-center">
+      <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary-500"></div>
+    </div>
+    <AppStoresStoreList v-else :stores="getCurrentPageStores" />
+    <BasePagination :item-per-page="10" :total-items="getTotalPages" :max-links-displayed="5"
+      @update:current-page="updatePage($event)" />
   </section>
 
 </template>
 
 <script lang="ts" setup>
-const { getStores } = storeToRefs(useMyStoresStore())
-const { fetchStores } = useMyStoresStore()
+const { getCurrentPageStores, getTotalPages, isLoading } = storeToRefs(useMyStoresStore())
+const { fetchStores, updatePage, searchStores } = useMyStoresStore()
+
+const filterEvent = async (event: string) => {
+  console.log("filterEvent", event.target.value);
+  await fetchStores();
+  searchStores(event.target.value);
+}
+
 onMounted(() => {
   fetchStores()
 })
+
 useHead({
   title: 'Stores',
   meta: [
