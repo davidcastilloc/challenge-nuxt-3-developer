@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ResultDisplay component renders correctly 1`] = `
+"<div class="nui-placeholder-page nui-placeholder-xs">
+  <div class="nui-placeholder-page-inner">
+    <div class="nui-placeholder-page-img"><img src="/images/display-recipe.jpg" alt="Placeholder" class="w-full rounded-md mt-4">
+      <p class="text-2xl font-bold"> The secret formula is </p>
+      <div class="capitalize flex"><img src="/icons/pasta.gif" class="relative h-6 w-6"><span class="ml-2 capitalize">pasta: 500</span></div>
+      <div class="capitalize flex"><img src="/icons/bacon.gif" class="relative h-6 w-6"><span class="ml-2 capitalize">bacon: 200</span></div>
+      <div class="capitalize flex"><img src="/icons/eggs.gif" class="relative h-6 w-6"><span class="ml-2 capitalize">eggs: 1</span></div>
+      <div class="capitalize flex"><img src="/icons/milk.gif" class="relative h-6 w-6"><span class="ml-2 capitalize">milk: 200</span></div>
+      <div class="capitalize flex"><img src="/icons/butter.gif" class="relative h-6 w-6"><span class="ml-2 capitalize">butter: 500</span></div>
+      <div class="capitalize flex"><img src="/icons/oil.gif" class="relative h-6 w-6"><span class="ml-2 capitalize">oil: 100</span></div>
+    </div>
+    <div class="nui-placeholder-page-content">
+      <h4 class="nui-heading nui-heading-xl nui-weight-medium nui-lead-normal nui-placeholder-page-title">You could make 2 lunches with this recipe</h4>
+      <!--v-if-->
+      <div class="mt-2 flex justify-center gap-2"><a href="/" disabled="false" class="nui-button nui-button-md nui-button-rounded-sm nui-button-solid nui-button-primary w-full mb-2"> Back to Calculator
+          <!--v-if-->
+        </a></div>
+    </div>
+  </div>
+</div>"
+`;
