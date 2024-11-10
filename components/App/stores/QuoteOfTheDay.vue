@@ -5,10 +5,10 @@
         Quote of the day
       </h2>
       <h5 class="subtitle">
-        {{ data.quote }}
+        {{ data?.quote }}
       </h5>
       <p class="text-sm">
-        {{ data.author }}
+        {{ data?.author }}
       </p>
     </BaseProse>
   </BaseMessage>
@@ -17,26 +17,32 @@
 <script lang="ts" setup>
 // get quote from server 24h cache
 const { data } = await useAsyncData('quote-of-the-day', () => $fetch('/api/quote'), {
-  transform: (input: any) => ({
+  transform: (input) => ({
     ...input,
     fetchedAt: Date.now(),
   }),
   getCachedData: (key, nuxtApp) => {
+
     const quoteCached =  nuxtApp.payload.data[key] || nuxtApp.static.data[key];
+    console.log('quote cached', quoteCached)
+
     // Check if the quote is cached
     if (!quoteCached) {
-      return
+      console.log('no quote cached')
+      return;
     }
     // Check if the quote is expired
     const DAY = 24 * 60 * 60 * 1000 // 24 hours in ms
     const expiration = new Date(quoteCached.fetchedAt);
     expiration.setTime(expiration.getTime() + DAY);
     const isExpired = expiration.getTime() < Date.now();
+
     // If the quote is expired, return undefined
     if (isExpired) {
-      return
+      console.log('expired quote')
+      return;
     }
-    return quoteCached
+    return quoteCached;
   },
 })
 </script>
