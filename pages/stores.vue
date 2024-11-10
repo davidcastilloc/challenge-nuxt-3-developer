@@ -1,9 +1,9 @@
 <template>
   <div class="w-full">
-    <section class="flex flex-row items-center mx-auto gap-4 p-4 w-1/2">
+    <section class="flex flex-row items-center mx-auto gap-4 p-4 w-full lg:w-1/2">
       <AppStoresQuoteOfTheDay />
     </section>
-    <section class="flex flex-col gap-4 p-4 bg-primary-300 bg-opacity-50 rounded-sm">
+    <section class="flex flex-col gap-4 p-4 bg-primary-50 bg-opacity-90 rounded-sm">
       <BaseInput label="Search your store" size="lg" @keyup="debouncedSearch($event)" icon="mdi:magnify"
         placeholder="Write the name of the store you want to search" rounded="md" />
       <div v-if="status === 'pending'" class="flex justify-center items-center">
