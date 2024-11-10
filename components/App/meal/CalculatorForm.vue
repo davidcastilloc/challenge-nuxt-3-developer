@@ -1,13 +1,16 @@
 <template>
   <div>
     <form @submit.prevent="calculateMeal">
-      <BaseForm title="Meal Calculator Form" class="flex flex-col p-3">
+      <h1 class="text-2xl text-primary-200 font-bold">
+          Carbonara Calculator
+        </h1>
+      <BaseForm class="flex flex-col md:!flex-row p-3 ">
         <div class="capitalize" v-for="(ingredient, key) in ingredients" :key="key">
           <img :src="`/icons/${[key]}.gif`" class="relative h-6 w-6" />
-          <BaseInput class="w-1/2" v-model="userIngredients[key]" :label="key" :placeholder="'Quantity of ' + key" />
+          <BaseInput v-model="userIngredients[key]" :label="key" :placeholder="'Quantity of ' + key" />
         </div>
         <template #footer>
-          <BaseButton type="submit">Calculate</BaseButton>
+          <BaseButton type="submit" class="relative place-items-center">Calculate</BaseButton>
         </template>
       </BaseForm>
     </form>

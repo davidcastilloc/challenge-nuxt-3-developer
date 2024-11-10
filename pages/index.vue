@@ -1,6 +1,6 @@
 <!-- Best Landing page carbonara Site ShurikenUI -->
 <template>
-  <div class="w-full md:w-1/2 lg:w-1/3">
+  <div class="w-full lg:w-1/2">
     <AppMealCalculatorForm  />
   </div>
 </template>
