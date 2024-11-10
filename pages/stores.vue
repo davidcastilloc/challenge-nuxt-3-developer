@@ -6,8 +6,8 @@
     <section class="flex flex-col gap-4 p-4 bg-primary-300 bg-opacity-50 rounded-sm">
       <BaseInput label="Search your store" size="lg" @keyup="debouncedSearch($event)" icon="mdi:magnify"
         placeholder="Write the name of the store you want to search" rounded="md" />
-      <div v-if="isLoading" class="flex justify-center items-center">
-        <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary-500"></div>
+      <div v-if="status === 'pending'" class="flex justify-center items-center">
+        <div class="animate-spin rounded-full h-20 w-20 border-t-2 border-b-2 border-primary-invert"></div>
       </div>
       <AppStoresStoreList v-else :stores="getCurrentPageStores" />
       <BasePagination :item-per-page="10" :total-items="getTotalPages" :max-links-displayed="5"
@@ -17,21 +17,23 @@
 </template>
 
 <script lang="ts" setup>
-const { getCurrentPageStores, getTotalPages, getCurrentPageNumber, isLoading } = storeToRefs(useMyStoresStore())
-const { fetchStores, updatePage, searchStores } = useMyStoresStore()
+const { getCurrentPageStores, getTotalPages, getCurrentPageNumber } = storeToRefs(useMyStoresStore())
+const { updatePage, searchStores, setFilter, setStores } = useMyStoresStore()
 
-import { useDebounceFn } from '@vueuse/core'
+import StoreApiAdapter from "~/services/api/StoreApiAdapter";
+const api = new StoreApiAdapter();
+const { data: stores, status, error } = await useAsyncData('stores', async () => {
+  const stores = await api.getStores();
+  setStores(stores)
+  return stores
+})
 
-// useDebounceFn for search event
 const debouncedSearch = useDebounceFn(async (event: string) => {
-  await fetchStores()
-  searchStores(event.target.value)
-}, 500)
-
+  setFilter(event.target.value)
+}, 1000);
 
 const route = useRoute()
 onMounted(() => {
-  fetchStores()
   if (route.query.page) {
     updatePage(parseInt(route.query.page as string))
   }
