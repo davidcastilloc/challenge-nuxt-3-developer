@@ -1,11 +1,9 @@
 <!-- Best Landing page carbonara Site ShurikenUI -->
 <template>
-  <div class="container mx-auto flex flex-row  rounded-md">
-    <AppMealCalculatorForm class="w-full md:w-1/2 lg:w-1/3 rounded-md" />
-  </div>
+  <AppMealCalculatorForm class="w-full md:w-1/2 lg:w-1/3" />
 </template>
 
-<script lang="ts" setup>  
+<script lang="ts" setup>
 useHead({
   title: 'Calculator',
   meta: [
@@ -17,6 +15,4 @@ useHead({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

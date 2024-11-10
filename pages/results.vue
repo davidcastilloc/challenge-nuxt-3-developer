@@ -1,7 +1,5 @@
 <template>
-  <BaseCard>
-    <AppMealResultDisplay :meals="meals" :ingredients="ingredients" />
-  </BaseCard>
+  <AppMealResultDisplay :meals="meals" :ingredients="ingredients" />
 </template>
 
 <script lang="ts" setup>
@@ -28,6 +26,4 @@ useHead({
 })
 </script>
 
-<style>
-
-</style>
+<style></style>
