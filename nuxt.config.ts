@@ -21,5 +21,10 @@ export default defineNuxtConfig({
   css: ["~/assets/main.css"],
   extends: ["@shuriken-ui/nuxt"],
   devtools: { enabled: true },
-  modules: ["@pinia/nuxt", "@vueuse/nuxt", "nuxt-delay-hydration"],
+  modules: [
+    "@pinia/nuxt",
+    "@vueuse/nuxt",
+    "nuxt-delay-hydration",
+    "@nuxt/test-utils/module",
+  ],
 });
