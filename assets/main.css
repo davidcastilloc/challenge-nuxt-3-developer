@@ -1,22 +1,11 @@
-.bg-img {
-	background-image: url("/images/carbonara.jpg");
-	/* Add the blur effect */
-	filter: blur(8px);
-	-webkit-filter: blur(8px);
-
-	/* Full height */
+body,
+html {
 	height: 100%;
-
-	/* Center and scale the image nicely */
+	background-image: url("/images/carbonara.jpg");
 	background-position: center;
 	background-repeat: repeat-y;
 	background-size: cover;
 	width: 100%;
-}
-
-body,
-html {
-	height: 100%;
 }
 
 * {

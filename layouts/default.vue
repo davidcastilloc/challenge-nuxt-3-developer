@@ -1,30 +1,29 @@
 <template>
-  <div class="bg-img fixed z-0"></div>
-  <header class="flex justify-center items-center py-4 w-full relative">
-    <NuxtLink to="/" class="font-bold text-xl text-primary">
-      <p>SRR - Restaurant APP</p>
-      <p class="text-sm">Company Inc.</p>
-    </NuxtLink>
-  </header>
-  <BaseNav class="absolute w-full">
-    <div class="flex justify-between space-x-6 text-2xl font-bold">
-      <NuxtLink to="/" class=" hover:text-accent transition">Calculator</NuxtLink>
-      <a href="/stores" class=" hover:text-accent transition">Our Stores</a>
-    </div>
-  </BaseNav>
-  <main class="mt-16 sm:mt-20 relative">
-    <slot />
-  </main>
-  <footer class="py-4 text-center ">
-    <p>&copy; 2024 Company Inc. All rights reserved.</p>
-  </footer>
+  <div class="h-full">
+    <header class="flex justify-center items-center py-4 w-full relative bg-primary-950 bg-opacity-70">
+      <NuxtLink to="/" class="font-bold text-xl text-primary-200 text-center">
+        <h1 class="text-2xl">Carbonara Restaurant's</h1>
+        <p class="text-sm">Company Inc.</p>
+      </NuxtLink>
+    </header>
+    <BaseNav class="absolute w-full">
+      <div class="flex justify-center space-x-6 text-2xl font-bold">
+        <NuxtLink to="/" class=" hover:text-accent transition">Calculator</NuxtLink>
+        <NuxtLink to="/stores" class=" hover:text-accent transition">Our Stores</NuxtLink>
+      </div>
+    </BaseNav>
+    <main class="mt-16 sm:mt-20 relative bg-primary-900 bg-opacity-30 p-5">
+      <div class="flex flex-col items-center justify-center">
+        <slot />
+      </div>
+    </main>
+    <footer class="py-4 text-center bg-primary-950 bg-opacity-70 text-primary-200">
+      <p>&copy; 2024 Company Inc. All rights reserved.</p>
+    </footer>
+  </div>
 </template>
 
 <script lang="ts" setup>
 </script>
 
-<style scoped>
-aside {
-  width: 200px;
-}
-</style>
+<style scoped></style>

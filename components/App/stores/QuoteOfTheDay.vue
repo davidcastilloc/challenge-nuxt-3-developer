@@ -16,8 +16,7 @@
 
 <script lang="ts" setup>
 const config = useRuntimeConfig()
-const { $quote } = useNuxtApp()
-const { data: quote } = await useAsyncData('quote-of-the-day', () => $quote)
+const { data: quote } = await useAsyncData('quote-of-the-day', () => $fetch('/api/quote'), { server: true })
 </script>
 
 <style></style>

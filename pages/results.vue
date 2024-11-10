@@ -1,5 +1,7 @@
 <template>
-  <AppMealResultDisplay :meals="meals" :ingredients="ingredients" />
+  <BaseCard class="w-full md:w-1/2 lg:w-1/3">
+    <AppMealResultDisplay :meals="meals" :ingredients="ingredients" />
+  </BaseCard>
 </template>
 
 <script lang="ts" setup>
