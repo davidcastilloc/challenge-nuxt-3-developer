@@ -1,0 +1,11 @@
+.carbonara-bg {
+	background-image: url("/images/carbonara.webp");
+	background-size: auto;
+	background-position: inherit;
+}
+
+.bg-img {
+	background-image: url("/images/carbonara.jpg");
+	background-size: cover;
+	filter: blur(10px);
+}

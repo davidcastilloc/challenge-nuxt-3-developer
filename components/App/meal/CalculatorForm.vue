@@ -1,8 +1,9 @@
 <template>
   <form @submit.prevent="calculateMeal">
     <BaseForm title="Meal Calculator Form" class="flex flex-col gap-4 p-3">
-      <div class="capitalize" v-for="(ingredient, key) in ingredients" :key="key" >
-        <BaseInput v-model="userIngredients[key]" :label="key" :placeholder="'Quantity of ' + key" />
+      <div class="capitalize" v-for="(ingredient, key) in ingredients" :key="key">
+        <img :src="`/icons/${[key]}.gif`" class="relative h-6 w-6" />
+        <BaseInput class="w-1/2" v-model="userIngredients[key]" :label="key" :placeholder="'Quantity of ' + key" />
       </div>
       <template #footer>
         <BaseButton type="submit">Calculate</BaseButton>

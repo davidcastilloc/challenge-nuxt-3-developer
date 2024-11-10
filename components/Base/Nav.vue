@@ -1,8 +1,6 @@
 <template>
-  <nav>
-    <BaseCard shadow="md" rounded="md" class="flex justify-between items-center p-4">
-      <slot  />
-    </BaseCard>
+  <nav class="flex justify-between items-center p-4 bg-primary-800 text-secondary bg-opacity-50">
+    <slot />
   </nav>
 
 </template>

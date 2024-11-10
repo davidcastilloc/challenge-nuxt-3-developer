@@ -1,6 +1,6 @@
 <template>
   <BaseCard>
-    <h2 class="text-2xl font-bold">
+    <h2 class="text-2xl font-bold text-center">
       {{ title }}
     </h2>
     <slot name="default">

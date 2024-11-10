@@ -3,15 +3,7 @@
     <AppStoresQuoteOfTheDay />
   </section>
   <section class="flex flex-col gap-4 p-4">
-    <BaseCard class="flex flex-col gap-4 p-4" color="default" shadow="md" rounded="md">
-      <h1 class="text-2xl font-bold">
-        Stores
-      </h1>
-      <p class="text-xl">
-        List of stores
-      </p>
-    </BaseCard>
-    <BaseInput label="Search your store" v-model="search" @input="filterEvent($event)" icon="mdi:magnify"
+    <BaseInput label="Search your store" v-model="search" @keyup.enter="filterEvent($event)" icon="mdi:magnify"
       placeholder="Write the name of the store you want to search and press enter" />
     <div v-if="isLoading" class="flex justify-center items-center">
       <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary-500"></div>

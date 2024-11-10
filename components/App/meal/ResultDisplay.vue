@@ -1,20 +1,23 @@
 <template>
-  <BaseCard>
-    <h1 class="text-2xl font-bold">
-      Meals Possible: {{ meals }}
-    </h1>
-    <h2 class="text-2xl font-bold">
-      The secret formula is
-    </h2>
-    <p class="text-xl">
-      Pasta: {{ ingredients.pasta }} <br />
-      Bacon: {{ ingredients.bacon }} <br />
-      Eggs: {{ ingredients.eggs }} <br />
-      Milk: {{ ingredients.milk }} <br />
-      Butter: {{ ingredients.butter }} <br />
-      Oil: {{ ingredients.oil }}
-    </p>
-  </BaseCard>
+  <BasePlaceholderPage :title="`You could make ${meals} lunches with this recipe`">
+    <template #image>
+      <img src="/images/display-recipe.jpg" alt="Placeholder" class="w-full rounded-md mt-4" />
+      <p class="text-2xl font-bold">
+        The secret formula is
+      </p>
+      <div class="capitalize flex" v-for="(ingredient, key) in ingredients" :key="key">
+        <img :src="`/icons/${[key]}.gif`" class="relative h-6 w-6" />
+        <span class="ml-2 capitalize">{{ key }}: {{
+          ingredient
+        }} </span>
+      </div>
+    </template>
+    <div class="mt-2 flex justify-center gap-2">
+      <BaseButton to="/" color="primary" class="w-full mb-2">
+        Back to Calculator
+      </BaseButton>
+    </div>
+  </BasePlaceholderPage>
 </template>
 
 <script lang="ts" setup>

@@ -9,6 +9,7 @@ export default defineNuxtConfig({
       quoteApiEndpoint: '',
     },
   },
+  css: ['~/assets/main.css'],
   extends: ['@shuriken-ui/nuxt'],
   devtools: { enabled: true },
   modules: ['@pinia/nuxt']

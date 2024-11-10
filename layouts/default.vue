@@ -1,26 +1,23 @@
 <template>
-  <header class="container mx-auto flex justify-between items-center py-4">
-    <div class="flex justify-between items-center">
-      <NuxtLink to="/" class=" font-bold text-xl">
-        <p>SRR - Restaurant APP</p>
-        <p class="text-sm">Company Inc.</p>
-      </NuxtLink>
-    </div>
+  <div class="w-full h-full bg-img absolute top-0 left-0 z-0"></div>
+  <header class="flex justify-center items-center py-4 w-full relative">
+    <NuxtLink to="/" class="font-bold text-xl text-center">
+      <p>SRR - Restaurant APP</p>
+      <p class="text-sm">Company Inc.</p>
+    </NuxtLink>
   </header>
-  <section class="container mx-auto py-4">
-    <BaseNav class="container mx-auto">
-      <div class="flex justify-between space-x-6">
-        <NuxtLink to="/" class=" hover:text-accent transition">Calculator</NuxtLink>
-        <a href="/stores" class=" hover:text-accent transition">Our Stores</a>
-      </div>
-    </BaseNav>
-  </section>
-  <main class="py-8">
+  <BaseNav class="absolute w-full ">
+    <div class="flex justify-between space-x-6 text-2xl font-bold">
+      <NuxtLink to="/" class=" hover:text-accent transition">Calculator</NuxtLink>
+      <a href="/stores" class=" hover:text-accent transition">Our Stores</a>
+    </div>
+  </BaseNav>
+  <main class="py-16">
     <div class="container mx-auto">
       <slot />
     </div>
   </main>
-  <footer class="bg-dark py-4 text-center ">
+  <footer class="py-4 text-center ">
     <p>&copy; 2024 Company Inc. All rights reserved.</p>
   </footer>
 </template>
