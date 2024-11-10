@@ -1,5 +1,5 @@
 // define test for ResultDisplay component
-import { it, expect, test } from "vitest";
+import { expect, test } from "vitest";
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 import ResultDisplay from "./ResultDisplay.vue";
 

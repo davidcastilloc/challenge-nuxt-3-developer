@@ -2,12 +2,13 @@
   <div>
     <form @submit.prevent="calculateMeal">
       <h1 class="text-2xl text-primary-200 font-bold">
-          Carbonara Calculator
-        </h1>
+        Carbonara Calculator
+      </h1>
       <BaseForm class="flex flex-col md:!flex-row p-3 ">
         <div class="capitalize" v-for="(ingredient, key) in ingredients" :key="key">
           <img :src="`/icons/${[key]}.gif`" class="relative h-6 w-6" />
-          <BaseInput v-model="userIngredients[key]" :label="key" :placeholder="'Quantity of ' + key" />
+          <BaseInputNumber v-model.number="userIngredients[key]" :label="key" :placeholder="'Quantity of ' + key"
+            rounded="sm" size="sm" />
         </div>
         <template #footer>
           <BaseButton type="submit" class="relative place-items-center">Calculate</BaseButton>
@@ -29,12 +30,12 @@ const ingredients = {
 }
 
 const userIngredients = ref({
-  pasta: 20000,
-  bacon: 20000,
-  eggs: 20000,
-  milk: 20000,
-  butter: 20000,
-  oil: 20000,
+  pasta: 0,
+  bacon: 0,
+  eggs: 0,
+  milk: 0,
+  butter: 0,
+  oil: 0,
 })
 
 const calculateMeal = () => {
