@@ -11,7 +11,7 @@ export default class QuoteApiAdapter extends ApiAdapter {
     const cachedData = this.getCachedQuote(cacheKey);
     if (cachedData) {
       console.log("Loading from cache");
-      return cachedData.quote;
+      return cachedData;
     }
 
     try {
@@ -26,7 +26,7 @@ export default class QuoteApiAdapter extends ApiAdapter {
       });
       console.log("Quote of the day fetched");
       const quoteFetched = {
-        ...data,
+        ...data[0],
         fetchedAt: Date.now(),
       }
       // Guardar la cita en la memoria caché del servidor

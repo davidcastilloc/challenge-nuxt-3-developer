@@ -5,10 +5,10 @@
         Quote of the day
       </h2>
       <h5 class="subtitle">
-        {{ data?.quote }}
+        {{ data.quote }}
       </h5>
       <p class="text-sm">
-        {{ data?.author }}
+        {{ data.author }}
       </p>
     </BaseProse>
   </BaseMessage>
@@ -23,7 +23,7 @@ const { data } = await useAsyncData('quote-of-the-day', () => $fetch('/api/quote
   }),
   getCachedData: (key, nuxtApp) => {
 
-    const quoteCached =  nuxtApp.payload.data[key] || nuxtApp.static.data[key];
+    const quoteCached = nuxtApp.payload.data[key] || nuxtApp.static.data[key];
     console.log('quote cached', quoteCached)
 
     // Check if the quote is cached
