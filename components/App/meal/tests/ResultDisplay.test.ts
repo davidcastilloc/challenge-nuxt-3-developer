@@ -1,7 +1,7 @@
 // define test for ResultDisplay component
 import { expect, test } from "vitest";
 import { mountSuspended } from "@nuxt/test-utils/runtime";
-import ResultDisplay from "./ResultDisplay.vue";
+import ResultDisplay from "../ResultDisplay.vue";
 
 test("ResultDisplay component renders correctly", async () => {
   const wrapper = mountSuspended(ResultDisplay, {
