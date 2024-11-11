@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="calculateMeal">
+    <form @submit.prevent="eventShowResults">
       <h1 class="text-2xl text-primary-200 font-bold">
         Carbonara Calculator
       </h1>
@@ -19,37 +19,19 @@
 </template>
 
 <script lang="ts" setup>
-const router = useRouter()
-const ingredients = {
-  pasta: 500,
-  bacon: 200,
-  eggs: 1,
-  milk: 200,
-  butter: 500,
-  oil: 100,
-}
-
+const router = useRouter();
 const userIngredients = ref({
-  pasta: 0,
-  bacon: 0,
-  eggs: 0,
-  milk: 0,
-  butter: 0,
-  oil: 0,
-})
-
-const calculateMeal = () => {
-  let maxMeals = Infinity;
-  for (const [key, amount] of Object.entries(ingredients)) {
-    const userAmount = userIngredients.value[key];
-    const possibleMeals = Math.floor(userAmount / amount);
-    if (possibleMeals < maxMeals) {
-      maxMeals = possibleMeals;
-    }
-  }
-  router.push({ name: 'results', query: { meals: maxMeals } });
-}
-
+  pasta: 50000,
+  bacon: 50000,
+  eggs: 50000,
+  milk: 50000,
+  butter: 50000,
+  oil: 50000,
+});
+const { ingredients, calculateMeal } = useCalculator();
+const eventShowResults = () => {
+  router.push({ name: "results", query: { meals: calculateMeal(userIngredients.value) } });
+};
 </script>
 
 <style></style>
