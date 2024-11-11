@@ -18,7 +18,7 @@
 
 <script setup>
 const { getCurrentPageStores, getTotalPages, getCurrentPageNumber } = storeToRefs(useMyStoresStore())
-const { updatePage, searchStores, setFilter, setStores } = useMyStoresStore()
+const { updatePage, setFilter, setStores } = useMyStoresStore()
 const inputFilter = ref('')
 import { useQuoteOfTheDay } from "~/composables/useQuoteOfTheDay";
 import StoreApiAdapter from "~/services/api/StoreApiAdapter";
