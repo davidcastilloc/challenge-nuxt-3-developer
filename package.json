@@ -3,6 +3,10 @@
   "description": "Pasta Carbonara meal calculator",
   "version": "1.0.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidcastilloc/challenge-nuxt-3-developer"
+  },
   "type": "module",
   "scripts": {
     "build": "nuxt build",
