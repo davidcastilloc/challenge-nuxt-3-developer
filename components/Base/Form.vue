@@ -1,6 +1,6 @@
 <template>
   <BaseCard>
-    <h2 class="text-2xl font-bold text-center">
+    <h2 v-if="title" class="text-2xl font-bold text-center">
       {{ title }}
     </h2>
     <slot name="default">
@@ -11,13 +11,11 @@
 </template>
 
 <script lang="ts" setup>
-defineComponent(
-  'BaseForm'
-)
+
 defineProps({
   title: {
     type: String,
-    required: true,
+    required: false,
   },
 })
 </script>
