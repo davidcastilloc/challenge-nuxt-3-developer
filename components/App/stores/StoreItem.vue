@@ -30,9 +30,10 @@
 </template>
 
 <script lang="ts" setup>
+import type { IStore } from "@/types/AppTypes";
 const props = defineProps({
   store: {
-    type: Object,
+    type: Object as () => IStore,
     required: true,
   },
 })

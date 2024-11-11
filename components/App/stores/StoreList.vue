@@ -5,9 +5,11 @@
 </template>
 
 <script lang="ts" setup>
+import type { IStore } from '~/types/AppTypes';
+
 const props = defineProps({
   stores: {
-    type: Array,
+    type: Array as ()=> Array<IStore>,
     required: true,
   },
 })
