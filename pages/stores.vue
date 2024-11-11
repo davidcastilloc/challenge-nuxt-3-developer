@@ -1,10 +1,10 @@
 <template>
   <div class="w-full">
     <section class="flex flex-row items-center mx-auto gap-4 p-4 w-full lg:w-1/2">
-      <AppStoresQuoteOfTheDay />
+      <AppStoresQuoteOfTheDay :quote-of-the-day="quoteOfTheDay" />
     </section>
     <section class="flex flex-col gap-4 p-4 bg-primary-50 bg-opacity-90 rounded-sm">
-      <BaseInput label="Search your store" size="lg" @keyup="debouncedSearch($event)" icon="mdi:magnify"
+      <BaseInput label="Search your store" size="lg" v-model="inputFilter" @change="debouncedSearch" icon="mdi:magnify"
         placeholder="Write the name of the store you want to search" rounded="md" />
       <div v-if="status === 'pending'" class="flex justify-center items-center">
         <div class="animate-spin rounded-full h-20 w-20 border-t-2 border-b-2 border-primary-invert"></div>
@@ -16,10 +16,11 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 const { getCurrentPageStores, getTotalPages, getCurrentPageNumber } = storeToRefs(useMyStoresStore())
 const { updatePage, searchStores, setFilter, setStores } = useMyStoresStore()
-
+const inputFilter = ref('')
+import { useQuoteOfTheDay } from "~/composables/useQuoteOfTheDay";
 import StoreApiAdapter from "~/services/api/StoreApiAdapter";
 const api = new StoreApiAdapter();
 const { data: stores, status, error } = await useAsyncData('stores', async () => {
@@ -28,14 +29,16 @@ const { data: stores, status, error } = await useAsyncData('stores', async () =>
   return stores
 })
 
-const debouncedSearch = useDebounceFn(async (event: string) => {
-  setFilter(event.target.value)
+const { data: quoteOfTheDay } = await useQuoteOfTheDay()
+
+const debouncedSearch = useDebounceFn(async () => {
+  setFilter(inputFilter.value)
 }, 1000);
 
 const route = useRoute()
 onMounted(() => {
   if (route.query.page) {
-    updatePage(parseInt(route.query.page as string))
+    updatePage(parseInt(route.query.page))
   }
 })
 

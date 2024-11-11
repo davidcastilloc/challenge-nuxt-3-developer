@@ -3,3 +3,9 @@ export interface IStore {
   name: string;
   location: string;
 }
+
+export interface IQuoteOfTheDay {
+  quote: string;
+  author: string;
+  fetchedAt: number;
+}
